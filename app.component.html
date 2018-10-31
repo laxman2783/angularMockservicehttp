@@ -1,0 +1,19 @@
+<div style="padding: 20px;">
+  <h1 style="color: blue">{{title}}</h1>
+  <h3>{{description}}</h3>
+  <nav>
+    <a routerLink="customer" class="btn btn-primary active" role="button" routerLinkActive="active">Customers</a><br/>
+
+    <a routerLink="add" class="btn btn-primary active" role="button" routerLinkActive="active">Add</a><br/>
+    <a routerLink="findbyage" class="btn btn-primary active" role="button" routerLinkActive="active">Search</a><br/>
+    <div class="d-flex p-2 bd-highlight">I'm a flexbox container!</div>
+  </nav>
+  <button (click)="getAll()">GetAll </button>
+
+{{data}}
+<div *ngFor="let k of goodResponse let index=i">
+{{k.title}}
+</div>
+  <!--<div *ngIf="loading"> Reponse loaded </div>-->
+    <router-outlet></router-outlet>
+</div>
