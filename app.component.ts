@@ -12,20 +12,27 @@ export class AppComponent {
   title="mayapp";
     url = 'http://localhost:3000/posts';
 somethingsomething:any;
-loading:boolean=false;;
+loading:boolean=false;
+data:any;
+ goodResponse = []
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<any> {
+  getAll() {
   //  console.log("in getAll");
     //return this.http.get(this.url + '?_sort=id&_order=desc')
       //.map(response => response);
- this.http.get(this.url + '?_sort=id&_order=desc',{reportProgress: true, observe: 'events'}).subscribe((res)=>{
+ this.http.get(this.url + '?_sort=id&_order=desc').subscribe((res)=>{
         console.log(res);
-          console.log(res.type);
-          console.log(res.loaded);
-            if (res.type === HttpEventType.Response) {
+        this.data=res;
+        for (let entry of this.data) {
+                console.log('entry', entry)
+                 this.goodResponse.push(entry);
+            }
+          //console.log(res.type);
+         // console.log(res.loaded);
+           /* if (res.type === HttpEventType.Response) {
                 this.loading=true;
-  }
+  }*/
     });
   }
 }
