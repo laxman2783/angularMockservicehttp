@@ -1,0 +1,18 @@
+1) Install Json Server
+
+npm install -g json-server
+
+
+2) In the root folder of your application, create a file with the extension .json. Inside you can add a set of data with several fields:
+
+extension.json in src  Folder
+
+
+
+3) run json server
+
+json-server --watch myJSONfile.json
+
+
+
+4) In application.component add the code.
