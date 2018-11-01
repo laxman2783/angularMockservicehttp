@@ -11,9 +11,21 @@
   <button (click)="getAll()">GetAll </button>
 
 {{data}}
-<div *ngFor="let k of goodResponse let index=i">
-{{k.title}}
+<table>
+<div *ngFor="let k of goodResponse;let i=index" [attr.data-index]="i">
+  <tr>
+    <th>ID</th>
+    <th>Age</th>
+    <th>Name</th>
+    </tr>
+  <tr *ngFor ="let p of k">
+<td>{{p.id}}</td>
+<td>{{p.age}}</td>
+<td>{{p.name}}</td>
+</tr>
+
 </div>
+</table>
   <!--<div *ngIf="loading"> Reponse loaded </div>-->
     <router-outlet></router-outlet>
 </div>
