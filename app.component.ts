@@ -10,7 +10,8 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AppComponent { 
   title="mayapp";
-    url = 'http://localhost:3000/posts';
+  //  url = 'http://localhost:3000/posts?id=1&id=2';
+  url='http://localhost:3000/author';
 somethingsomething:any;
 loading:boolean=false;
 data:any;
@@ -24,10 +25,11 @@ data:any;
  this.http.get(this.url + '?_sort=id&_order=desc').subscribe((res)=>{
         console.log(res);
         this.data=res;
-        for (let entry of this.data) {
+          this.goodResponse.push(res);
+      /*  for (let entry of this.data) {
                 console.log('entry', entry)
                  this.goodResponse.push(entry);
-            }
+            }*/
           //console.log(res.type);
          // console.log(res.loaded);
            /* if (res.type === HttpEventType.Response) {
